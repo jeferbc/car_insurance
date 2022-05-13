@@ -11,4 +11,8 @@ class Report
     end
     @file.puts ''
   end
+
+  def close_file
+    @file.close
+  end
 end

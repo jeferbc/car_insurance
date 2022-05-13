@@ -25,6 +25,7 @@ class InsuranceAfterDaysReport
       car_insurance.update_price
       report.print_report(@products_at_day_zero, index + 1)
     end
+    report.close_file
   end
 end
 
