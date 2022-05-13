@@ -1,4 +1,6 @@
 require_relative '../car_insurance/car_insurance.rb'
+require 'simplecov'
+SimpleCov.start
 
 RSpec.describe CarInsurance do
   let!(:product) { Struct.new(:name, :sell_in, :price) }
@@ -7,11 +9,11 @@ RSpec.describe CarInsurance do
 
   context 'When low or medium insurance' do
     context 'when sell in greater or equal to zero' do
-      let!(:insurance) { product.new('Medium Coverage', 0, 10) }
+      let!(:insurance) { product.new('Medium Coverage', 1, 10) }
 
       it 'updates price' do
         expect(@prod.price).to eq 9
-        expect(@prod.sell_in).to eq(-1)
+        expect(@prod.sell_in).to eq(0)
       end
     end
 
@@ -36,11 +38,11 @@ RSpec.describe CarInsurance do
 
   context 'When Full Coverage' do
     context 'when sell in greater or equal to zero' do
-      let!(:insurance) { product.new('Full Coverage', 0, 10) }
+      let!(:insurance) { product.new('Full Coverage', 1, 10) }
 
       it 'updates price' do
         expect(@prod.price).to eq 11
-        expect(@prod.sell_in).to eq(-1)
+        expect(@prod.sell_in).to eq(0)
       end
     end
 
@@ -132,11 +134,11 @@ RSpec.describe CarInsurance do
 
   context 'Super Sale' do
     context 'when sell in greater or equal to zero' do
-      let!(:insurance) { product.new('Super Sale', 0, 10) }
+      let!(:insurance) { product.new('Super Sale', 1, 10) }
 
       it 'updates price' do
         expect(@prod.price).to eq 8
-        expect(@prod.sell_in).to eq(-1)
+        expect(@prod.sell_in).to eq(0)
       end
     end
 
