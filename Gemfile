@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+gem 'simplecov'
 gem 'rspec'
 
 source "https://rubygems.org"
